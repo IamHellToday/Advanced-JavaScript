@@ -1,3 +1,4 @@
+
 module.exports = function(grunt) {
     
   // Project configuration.
@@ -23,21 +24,23 @@ module.exports = function(grunt) {
             }]
         }
     },
+
     watch: {
         scripts: {
             files: ['sass/*.sass'],
-            tasks: ['sass'],
+            tasks: ['sass', 'autoprefixer'],
             options: {
                 spawn: false
             }
         } 
     },
+
     browserSync: {
         dev: {
             bsFiles: {
                 src : [
-                    'Project-1/css/*.css',
-                    'Project-1/*.html'
+                    'css/*.css',
+                    '*.html'
                 ]
             },
             options: {
@@ -45,20 +48,38 @@ module.exports = function(grunt) {
                 server: './'
             }
         }
-    }
+    },
+
+    jshint: {
+        all: ['js/*.js']
+    },
+
+    autoprefixer: {
+        options: {
+            browsers: ['last 2 versions', 'ie 8', 'ie 9']
+        },
+        your_target: {
+              src: 
+              'css/style.css',
+              dest:
+              'css/dist/style.css'
+        },
+    },       
   })
   
   // Load the plugins tasks 
 //   kompilacja sass->css
-  grunt.loadNpmTasks('grunt-sass');
+grunt.loadNpmTasks('grunt-sass');
 //   Optymalizacja obrazków
-  grunt.loadNpmTasks('grunt-contrib-imagemin');
+grunt.loadNpmTasks('grunt-contrib-imagemin');
 //   Auto zapis
-  grunt.loadNpmTasks('grunt-contrib-watch');
+grunt.loadNpmTasks('grunt-contrib-watch');
 //  Web Sync
-    grunt.loadNpmTasks('grunt-browser-sync');
-  
+grunt.loadNpmTasks('grunt-browser-sync');
+// Jshint
+grunt.loadNpmTasks('grunt-contrib-jshint');
+// Autoprefixer
+grunt.loadNpmTasks('grunt-autoprefixer');
   // Default task(s).
-  grunt.registerTask('default', ['sass', 'imagemin', 'browserSync', 'watch']);
-//   grunt.registerTask('default', ['sass', 'imagemin', 'browserSync', 'watch']);
+grunt.registerTask('default', ['sass', 'imagemin', 'browserSync', 'jshint', 'autoprefixer', 'watch']);
 };

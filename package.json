@@ -1,27 +1,29 @@
 {
-  "name": "Project-1",
+  "name": "",
   "version": "1.0.0",
-  "description": "Project #1",
-  "main": "index.js",
+  "description": "",
+  "main": "scripts.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/IamHellToday/Project-1.git"
+    "url": "git+https://github.com/IamHellToday/Module9/tree/8.6"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/IamHellToday/Project-1/issues"
+    "url": "https://github.com/IamHellToday/Module9/tree/8.6/issues"
   },
-  "homepage": "https://github.com/IamHellToday/Project-1#readme",
+  "homepage": "https://github.com/IamHellToday/Module9/tree/8.6#readme",
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-autoprefixer": "^3.0.4",
     "grunt-browser-sync": "^2.2.0",
     "grunt-contrib-imagemin": "^2.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-sass": "^2.0.0"
   }

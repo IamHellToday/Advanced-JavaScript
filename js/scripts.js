@@ -26,5 +26,5 @@ if (Number.isInteger(isNumber)) {
     }
 }
 else {
-    alert('Michał mówi, że nie wie');
+    alert('You have put something beyond number, mate!');
 }

@@ -26,5 +26,5 @@ if (Number.isInteger(isNumber)) {
     }
 }
 else {
-    alert('You have put something beyond what is called a number, mate!');
+    alert('Score is beyond math because you have put something beyond what is called a number, mate!');
 }

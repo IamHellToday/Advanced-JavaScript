@@ -1,12 +1,12 @@
 function getTriangleArea(a, h) {
   if ((a < 0) && (h > 0)) {
-      return ("A mniejsze od zera, ale H jest spoko");
+      return ("A is less than zero, but H is cool");
   }
   else if ((a > 0) && (h < 0)) {
-      return ("A jest spoko, ale H mniejsze od zera");
+      return ("A is cool, but H is less than zero");
   }
   else if ((a === 0) && (h === 0)) {
-      return("A równe zero, H równe zero")
+      return("A equals zero, H equals zero")
   }
   return a * h/2;
 }

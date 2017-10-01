@@ -4,6 +4,7 @@ var allNames = ['Marian', 'Jacek', 'Prezes'];
 function getArrWithoutName (name) {
   if (namesAbleToRemove.indexOf(name) !== -1) {
     return allNames.filter(function(item) {
+      console.log(allNames.indexOf(item) + ' ' + item);
       return item !== name;
     });
   }
@@ -13,6 +14,7 @@ function getArrWithoutName (name) {
 console.log(getArrWithoutName('Prezes'));
 namesAbleToRemove.push('Prezes');
 console.log(getArrWithoutName('Prezes'));
+
 // Różny od -1;
 // indexOf('Prezes') = 2;
 // 2 !== -1;

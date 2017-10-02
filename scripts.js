@@ -8,3 +8,4 @@ let starTree = function(row){
   }
 }
 starTree(7)
+ 

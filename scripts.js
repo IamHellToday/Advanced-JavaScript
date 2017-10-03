@@ -6,7 +6,7 @@ function drawTree(treeHeight) {
 			star += '*';
 		}
 		for (var k = i; k < treeHeight; k++) {
-			whitespace += "j";
+			whitespace += " ";
 		}
 		console.log(whitespace + star);
 	}

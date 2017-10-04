@@ -1,10 +1,7 @@
 var iterationOnDom = function () {
-    var variableWithElements = document.getEelementsByClassName("button");
-    var lenghtOfvariableWithElements = variableWithElements.length;
+    var variableWithElements = document.querySelectorAll("div.button");
     
-    for (var i = 0; i < lenghtOfvariableWithElements; i++) {
+    for (var i = 0; i < variableWithElements[i]; i++) {
         alert(variableWithElements.innerText);
-    }
-        
+    }      
 };
-console.log(iterationOnDom());

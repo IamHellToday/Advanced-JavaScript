@@ -17,7 +17,7 @@ pickScissors.addEventListener('click', function(){
 });
 
 //Starting values
-let gameState = 'notStarted', 
+let gameState = 'notStarted',
     player = {
         name: '',
         score: 0
@@ -59,7 +59,7 @@ function newGame(){
         player.score = computer.score = 0;
         gameState = 'started';
         setGameElements();
-        
+
     playerNameElem.innerHTML = player.name;
         setGamePoints();
     }
@@ -69,47 +69,48 @@ function playerPick(playerPick){
     console.log(playerPick);
 }
 
-let PlayerPickElem = document.getElementById('js-playerPick'),
+let PlayerPickElem = document.getElementById('js-playerPick'),  // nazwa zmiennej z dużej litery -> pozniej odwołujesz sie do niej z małej (dlatego masz błąd). Poza tym sprawdź czy ten element jest prawidłowo pobierany z DOM
+
     computerPickElem = document.getElementById('js-computerPick'),
     playerResultElem = document.getElementById('js-playerResult'),
     computerResultElem = document.getElementById('js-computerResult');
-
+debugger;
 function getComputerPick (){
     let possiblePicks = ['rock', 'paper', 'scissors'];
     return possiblePicks[Math.floor(Math.random()*3)];
 }
 
 function checkRoundWinner(playerPick, computerPick){
-    playerResultElem.innerHTML = computerResultElem.innderHTML = '';
-    
+    playerResultElem.innerHTML = computerResultElem.innderHTML = '';   // Nieprawidłowa nazwa właściwości (literówka)
+
     let winnerIs = 'player';
-    
+
         if (playerPick == computerPick){
             winnerIs = 'noone';
-        } 
+        }
         else if (
             (computerPick == 'rock' && playerPick =='scissors') ||
             (computerPick == 'scissors' && playerPick =='paper') ||
             (computerPick == 'paper' && playerPick == 'rock')) {
             winnerIs = 'computer';
         }
-        
+
         if (winnerIs == 'player'){
             playerResultElem.innerHTML = 'WIN!';
             player.score++;
         }
         else if (winnerIs == 'computer') {
-            computerResultElem.inerHTML = 'WIN!'
+            computerResultElem.inerHTML = 'WIN!'  // Nieprawidłowa nazwa właściwości (literówka)
             computer.score++;
         }
 }
 
 function playerPick(playerPick) {
     let computerPick = getComputerPick();
-    
+
     playerPickElem.innerHTML = playerPick;
     computerPickElem.innerHTML = computerPick;
-    
+
     checkRoundWinner(playerPick, computerPick);
 }
 

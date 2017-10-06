@@ -159,7 +159,7 @@ function finish(){
 
         let playerChoice = prompt('Do you wanna play again?');
 
-        if(playerChoice == 'yes'){
+        if(playerChoice == 'yes', 'Yes'){
             restart();
             }
         else{

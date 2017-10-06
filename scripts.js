@@ -128,11 +128,9 @@ function checkRoundWinner(playerPick, computerPick){
         }
 
         if (winnerIs == 'player'){
-            playerResultElem.innerHTML = 'WIN!';
             player.score++;
         }
-        else if (winnerIs == 'computer') {
-            computerResultElem.innerHTML = 'WIN!'  // Nieprawidłowa nazwa właściwości (literówka)
+        else if (winnerIs == 'computer') { // Nieprawidłowa nazwa właściwości (literówka)
             computer.score++;
         }
 }

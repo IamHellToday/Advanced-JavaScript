@@ -1,11 +1,17 @@
+
+//region New Game button
 let newGameBtn = document.getElementById('js-newGameButton');
-debugger;
+//endregion
+
 newGameBtn.addEventListener('click', newGame);
 
+//region Player buttons
 let pickRock = document.getElementById('js-playerPick_rock'),
     pickPaper = document.getElementById('js-playerPick_paper'),
     pickScissors = document.getElementById('js-playerPick_scissors');
-debugger;
+//endregion
+
+//region Listeners of choice
 pickRock.addEventListener('click', function(){
     playerPick('rock')
 });
@@ -15,7 +21,8 @@ pickPaper.addEventListener('click', function(){
 pickScissors.addEventListener('click', function(){
     playerPick('scissors')
 });
-debugger;
+//endregion
+
 //region Starting values
 let gameState = 'notStarted',
     player = {
@@ -26,12 +33,14 @@ let gameState = 'notStarted',
         score: 0
     };
 //endregion
-debugger;
-//variables showing parts of game elements
+
+//region variables showing parts of game elements
 let newGameElem = document.getElementById('js-newGameElement'),
     pickElem = document.getElementById('js-playerPickElement'),
     resultsElem = document.getElementById('js-resultsTableElement');
-debugger;
+//endregion
+
+//region Game State
 function setGameElements(){
     switch(gameState){
         case 'started':
@@ -48,12 +57,16 @@ function setGameElements(){
                 resultsElem.style.display = 'none';
     }
 }
+//endregion
+
+//Function of game layout
 setGameElements();
-debugger;
+
+//region New Game
 let playerPointsElem = document.getElementById('js-playerPoints'),
     playerNameElem = document.getElementById('js-playerName'),
     computerPointsElem = document.getElementById('js-computerPoints');
-debugger;
+
 function newGame(){
     player.name = prompt(`Please, share with me your name, 'imię gracza'`);
     if(player.name) {
@@ -65,22 +78,38 @@ function newGame(){
         setGamePoints();
     }
 }
-debugger;
+//endregion
+
+//region Player pick
 function playerPick(playerPick){
     console.log(playerPick);
 }
-debugger;
-let playerPickElem = document.getElementById('js-playerPick'),  // nazwa zmiennej z dużej litery -> pozniej odwołujesz sie do niej z małej (dlatego masz błąd). Poza tym sprawdź czy ten element jest prawidłowo pobierany z DOM
+//endregion
 
-    computerPickElem = document.getElementById('js-computerPick'),
-    playerResultElem = document.getElementById('js-playerResult'),
-    computerResultElem = document.getElementById('js-computerResult');
-debugger;
+//region Computer pick
 function getComputerPick (){
     let possiblePicks = ['rock', 'paper', 'scissors'];
     return possiblePicks[Math.floor(Math.random()*3)];
 }
-debugger;
+//endregion
+
+//region Picks - variables and functions
+let playerPickElem = document.getElementById('js-playerPick'),  // nazwa zmiennej z dużej litery -> pozniej odwołujesz sie do niej z małej (dlatego masz błąd). Poza tym sprawdź czy ten element jest prawidłowo pobierany z DOM
+    computerPickElem = document.getElementById('js-computerPick'),
+    playerResultElem = document.getElementById('js-playerResult'),
+    computerResultElem = document.getElementById('js-computerResult');
+
+function playerPick(playerPick) {
+    let computerPick = getComputerPick();
+    
+    playerPickElem.innerHTML = playerPick;
+    computerPickElem.innerHTML = computerPick;
+    
+    checkRoundWinner(playerPick, computerPick);
+}
+//endregion
+
+//region Game mechanics
 function checkRoundWinner(playerPick, computerPick){
     playerResultElem.innerHTML = computerResultElem.innerHTML = '';   // Nieprawidłowa nazwa właściwości (literówka)
 
@@ -88,6 +117,8 @@ function checkRoundWinner(playerPick, computerPick){
 
         if (playerPick == computerPick){
             winnerIs = 'noone';
+            playerResultElem.innerHTML = 'DRAW!';
+            computerResultElem.innerHTML = 'DRAW!';
         }
         else if (
             (computerPick == 'rock' && playerPick =='scissors') ||
@@ -105,18 +136,19 @@ function checkRoundWinner(playerPick, computerPick){
             computer.score++;
         }
 }
-debugger;
-function playerPick(playerPick) {
-    let computerPick = getComputerPick();
+//endregion
 
-    playerPickElem.innerHTML = playerPick;
-    computerPickElem.innerHTML = computerPick;
-
-    checkRoundWinner(playerPick, computerPick);
-}
-debugger;
+//region Game points update
 function setGamePoints() {
     playerPointsElem.innerHTML = player.score;
     computerPointsElem.innerHTML = computer.score;
 }
-debugger;
+//endregion 
+
+//region Finish
+    //code
+//endregion
+
+//region Once again
+    //code
+//endregion

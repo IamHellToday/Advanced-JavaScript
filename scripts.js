@@ -149,19 +149,18 @@ function setGamePoints() {
 function finish(){
     if(playerPointsElem.innerHTML == 10){
         alert(`Winner is ${player.name}`);
-
-        let playerChoice = prompt('Do you wanna play again?');
-        function wannaPlayAgain(yes, no){
-            if (function wannaPlayAgain(yes)){
+        let playerChocie = prompt('Do you wanna play again?');
+        function wannaPlayAgain(playerChoice){
+            if (function wannaPlayAgain(${yes})){
                 restart();
             }
-            else (function wannaPlayAgain(no)){
+            else (function wannaPlayAgain(${no})){
                 alert('Thanks for playing!');
             }
             }
         }
     }
-    else if(computerPointsEelem.innerHTML == 10){
+    else (computerPointsEelem.innerHTML == 10){
         alert('Computer won by reaching 10 points max score');
         restart();
     }

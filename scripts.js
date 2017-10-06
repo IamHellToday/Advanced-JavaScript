@@ -147,7 +147,7 @@ function setGamePoints() {
 function endGame(){
     gameState = 'ended';
     setGameElements();
-    let winner = 
-    alert(`And the winner is `)
+    let winner = player.score == 10 || computer.score == 10;
+    alert(`And the winner is ${winner}`)
 }
 //region Finish

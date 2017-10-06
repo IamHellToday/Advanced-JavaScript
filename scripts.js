@@ -164,7 +164,6 @@ function finish(){
         alert('Computer won by reaching 10 points max score');
         restart();
     }
- }
 //endregion
 
 //region Once again function

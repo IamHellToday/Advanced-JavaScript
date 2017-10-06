@@ -156,6 +156,7 @@ function finish(){
     }
 }
     function wannaPlayAgain(){
+
         let playerChoice = prompt('Do you wanna play again?');
 
         if(playerChoice == 'yes'){

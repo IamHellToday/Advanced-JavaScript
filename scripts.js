@@ -146,9 +146,21 @@ function setGamePoints() {
 //endregion 
 
 //region Finish
-    //code
+function finish(){
+    if(playerPointsElem.innerHTML == 10){
+        alert(`Winner is ${player.name}`);
+        restart();
+    }
+    else if(computerPointsEelem.innerHTML == 10){
+        alert(`Computer won by reaching 10points max`);
+        restart();
+    }
+ }
 //endregion
 
 //region Once again
-    //code
+function restart(){
+    gameState = `ended`;
+    setGameElements();
+}
 //endregion

@@ -51,7 +51,6 @@ function setGameElements(){
         case 'ended':
                 newGameBtn.innerText = 'Once again';
         case 'notStarted':
-        default:
                 newGameElem.style.display = 'block';
                 pickElem.style.display = 'none';
                 resultsElem.style.display = 'none';
@@ -61,7 +60,6 @@ function setGameElements(){
 
 //Function of game layout
 setGameElements();
-
 //region New Game
 let playerPointsElem = document.getElementById('js-playerPoints'),
     playerNameElem = document.getElementById('js-playerName'),
@@ -117,8 +115,6 @@ function checkRoundWinner(playerPick, computerPick){
 
         if (playerPick == computerPick){
             winnerIs = 'noone';
-            playerResultElem.innerHTML = 'DRAW!';
-            computerResultElem.innerHTML = 'DRAW!';
         }
         else if (
             (computerPick == 'rock' && playerPick =='scissors') ||
@@ -128,12 +124,18 @@ function checkRoundWinner(playerPick, computerPick){
         }
 
         if (winnerIs == 'player'){
+            playerResultElem.innerHTML = "Win!";
             player.score++;
         }
         else if (winnerIs == 'computer') { // Nieprawidłowa nazwa właściwości (literówka)
+            computerResultElem.innerHTML = "Win!";
             computer.score++;
         }
-}
+        setGamePoints();
+        if (player.score == 10 || computer.score == 10) {
+            endGame();
+        }
+}	
 //endregion
 
 //region Game points update
@@ -142,33 +144,10 @@ function setGamePoints() {
     computerPointsElem.innerHTML = computer.score;
 }
 //endregion 
-
-//region Finish
-function finish(){
-    if(playerPointsElem.innerHTML == 10){
-        alert(`Winner is ${player.name}`);
-        wannaPlayAgain();
-    }
-    else if(computerPointsEelem.innerHTML == 10){
-        alert('Computer won by reaching 10 points max score');
-    }
-}
-    function wannaPlayAgain(){
-
-        let playerChoice = prompt('Do you wanna play again?');
-
-        if(playerChoice == 'yes', 'Yes'){
-            restart();
-            }
-        else{
-        alert('Thanks for playing!');
-        }
-    }
-//endregion
-
-//region Once again function
-function restart(){
+function endGame(){
     gameState = 'ended';
     setGameElements();
+    let winner = 
+    alert(`And the winner is `)
 }
-//endregion
+//region Finish

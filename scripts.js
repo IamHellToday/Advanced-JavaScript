@@ -158,13 +158,13 @@ function finish(){
     function wannaPlayAgain(){
         let playerChoice = prompt('Do you wanna play again?');
 
-        if (playerChoice == ${yes}){
+        if (playerChoice == 'yes'){
             restart();
             }
-        else (){
+        else {
         alert('Thanks for playing!');
-            }
         }
+    }
 //endregion
 
 //region Once again function

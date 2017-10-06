@@ -151,17 +151,17 @@ function finish(){
         alert(`Winner is ${player.name}`);
         wannaPlayAgain();
     }
-    else (computerPointsEelem.innerHTML == 10){
+    else if(computerPointsEelem.innerHTML == 10){
         alert('Computer won by reaching 10 points max score');
     }
 }
     function wannaPlayAgain(){
         let playerChoice = prompt('Do you wanna play again?');
 
-        if (playerChoice == 'yes'){
+        if(playerChoice == 'yes'){
             restart();
             }
-        else {
+        else{
         alert('Thanks for playing!');
         }
     }
@@ -169,7 +169,7 @@ function finish(){
 
 //region Once again function
 function restart(){
-    gameState = `ended`;
+    gameState = 'ended';
     setGameElements();
 }
 //endregion

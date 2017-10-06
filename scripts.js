@@ -15,7 +15,7 @@ pickPaper.addEventListener('click', function(){
 pickScissors.addEventListener('click', function(){
     playerPick('scissors')
 });
-
+debugger;
 //region Starting values
 let gameState = 'notStarted',
     player = {
@@ -26,12 +26,12 @@ let gameState = 'notStarted',
         score: 0
     };
 //endregion
-
+debugger;
 //variables showing parts of game elements
 let newGameElem = document.getElementById('js-newGameElement'),
     pickElem = document.getElementById('js-playerPickElement'),
     resultsElem = document.getElementById('js-resultsTableElement');
-
+debugger;
 function setGameElements(){
     switch(gameState){
         case 'started':
@@ -49,11 +49,11 @@ function setGameElements(){
     }
 }
 setGameElements();
-
+debugger;
 let playerPointsElem = document.getElementById('js-playerPoints'),
     playerNameElem = document.getElementById('js-playerName'),
     computerPointsElem = document.getElementById('js-computerPoints');
-
+debugger;
 function newGame(){
     player.name = prompt(`Please, share with me your name, 'imię gracza'`);
     if(player.name) {
@@ -65,11 +65,11 @@ function newGame(){
         setGamePoints();
     }
 }
-
+debugger;
 function playerPick(playerPick){
     console.log(playerPick);
 }
-
+debugger;
 let playerPickElem = document.getElementById('js-playerPick'),  // nazwa zmiennej z dużej litery -> pozniej odwołujesz sie do niej z małej (dlatego masz błąd). Poza tym sprawdź czy ten element jest prawidłowo pobierany z DOM
 
     computerPickElem = document.getElementById('js-computerPick'),
@@ -80,7 +80,7 @@ function getComputerPick (){
     let possiblePicks = ['rock', 'paper', 'scissors'];
     return possiblePicks[Math.floor(Math.random()*3)];
 }
-
+debugger;
 function checkRoundWinner(playerPick, computerPick){
     playerResultElem.innerHTML = computerResultElem.innerHTML = '';   // Nieprawidłowa nazwa właściwości (literówka)
 
@@ -105,7 +105,7 @@ function checkRoundWinner(playerPick, computerPick){
             computer.score++;
         }
 }
-
+debugger;
 function playerPick(playerPick) {
     let computerPick = getComputerPick();
 
@@ -114,8 +114,9 @@ function playerPick(playerPick) {
 
     checkRoundWinner(playerPick, computerPick);
 }
-
+debugger;
 function setGamePoints() {
     playerPointsElem.innerHTML = player.score;
     computerPointsElem.innerHTML = computer.score;
 }
+debugger;

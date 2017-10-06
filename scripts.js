@@ -66,7 +66,7 @@ let playerPointsElem = document.getElementById('js-playerPoints'),
     computerPointsElem = document.getElementById('js-computerPoints');
 
 function newGame(){
-    player.name = prompt(`Please, share with me your name, 'imię gracza'`);
+    player.name = prompt('Please, share with me your name :)');
     if(player.name) {
         player.score = computer.score = 0;
         gameState = 'started';
@@ -147,7 +147,14 @@ function setGamePoints() {
 function endGame(){
     gameState = 'ended';
     setGameElements();
-    let winner = player.score == 10 || computer.score == 10;
+    let winner = function(){
+        if(player.score == 10){
+            return player.name
+        }
+        else{
+            return computer
+        }
+    }
     alert(`And the winner is ${winner}`)
 }
 //region Finish

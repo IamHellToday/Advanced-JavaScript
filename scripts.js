@@ -99,10 +99,10 @@ let playerPickElem = document.getElementById('js-playerPick'),  // nazwa zmienne
 
 function playerPick(playerPick) {
     let computerPick = getComputerPick();
-    
+
     playerPickElem.innerHTML = playerPick;
     computerPickElem.innerHTML = computerPick;
-    
+
     checkRoundWinner(playerPick, computerPick);
 }
 //endregion
@@ -135,7 +135,7 @@ function checkRoundWinner(playerPick, computerPick){
         if (player.score == 10 || computer.score == 10) {
             endGame();
         }
-}	
+}
 //endregion
 
 //region Game points update
@@ -143,7 +143,7 @@ function setGamePoints() {
     playerPointsElem.innerHTML = player.score;
     computerPointsElem.innerHTML = computer.score;
 }
-//endregion 
+//endregion
 function endGame(){
     gameState = 'ended';
     setGameElements();
@@ -155,6 +155,6 @@ function endGame(){
             return computer
         }
     }
-    alert(`And the winner is ${winner()}`)
+    alert(`And the winner is ${winner()}`)  // czemu tu funkcję wywołujesz? - tu powinieneś zwrócić efekt działania funkcji anonimowej, którą masz przypisaną do zmiennej 'winner'
 }
 //region Finish

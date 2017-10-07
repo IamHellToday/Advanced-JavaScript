@@ -149,12 +149,13 @@ function endGame(){
     setGameElements();
     let winner = function(){
         if(player.score == 10){
-            return player.name
+            return alert(`And the winner is ${player.name}`);
         }
         else{
-            return computer
+            return alert('And the winner is Computer');
         }
     }
-    alert(`And the winner is ${winner()}`)  // czemu tu funkcję wywołujesz? - tu powinieneś zwrócić efekt działania funkcji anonimowej, którą masz przypisaną do zmiennej 'winner'
+    winner();  // czemu tu funkcję wywołujesz? - tu powinieneś zwrócić efekt działania funkcji anonimowej, którą masz przypisaną do zmiennej 'winner'
 }
+debugger;
 //region Finish

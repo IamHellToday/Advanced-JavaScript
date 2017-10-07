@@ -155,6 +155,6 @@ function endGame(){
             return computer
         }
     }
-    alert(`And the winner is ${winner}`)
+    alert(`And the winner is ${winner()}`)
 }
 //region Finish

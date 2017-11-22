@@ -1,161 +1,49 @@
+//1st
+const Hello = 'Hello';
+const World = 'World!';
+const HelloWorld = `${Hello} ${World}`
+console.log(HelloWorld);
 
-//region New Game button
-let newGameBtn = document.getElementById('js-newGameButton');
-//endregion
+//2nd
+const multiply = (a, b = 1) => {return a / b};
 
-newGameBtn.addEventListener('click', newGame);
+console.log(multiply(1, 6));
+console.log(multiply(2));
+console.log(multiply(6, "6"));//zwraca 1 -?
 
-//region Player buttons
-let pickRock = document.getElementById('js-playerPick_rock'),
-    pickPaper = document.getElementById('js-playerPick_paper'),
-    pickScissors = document.getElementById('js-playerPick_scissors');
-//endregion
 
-//region Listeners of choice
-pickRock.addEventListener('click', function(){
-    playerPick('rock')
-});
-pickPaper.addEventListener('click', function(){
-    playerPick('paper')
-});
-pickScissors.addEventListener('click', function(){
-    playerPick('scissors')
-});
-//endregion
+//3rd
+//Array way
+const numbers = [1, 5, 2, 6, 1235, 12];
+let totalNumbers = 0;
+for (let i = 0; i < numbers.length; i++) {
+    totalNumbers += numbers[i];
+};
+console.log(totalNumbers);
+const average = () => {return totalNumbers/numbers.length}; 
+console.log(average());
+//Arguments way
+const averageNumber = (a, b, c, d) => {return (a + b + c + d) / 4};
+console.log(averageNumber(1, 2, 3, 4));
 
-//region Starting values
-let gameState = 'notStarted',
-    player = {
-        name: '',
-        score: 0
-    },
-    computer = {
-        score: 0
-    };
-//endregion
+//4th
+const grades = [1, 5, 5, 5, 4, 3, 3, 2, 1];
+let totalGrades = 0;
+for (let i = 0; i < grades.length; i++) {
+    totalGrades += grades[i];
+};
+const averageGrades = () => {return totalGrades / grades.length};
+console.log(averageGrades());
+//Spread way?
 
-//region variables showing parts of game elements
-let newGameElem = document.getElementById('js-newGameElement'),
-    pickElem = document.getElementById('js-playerPickElement'),
-    resultsElem = document.getElementById('js-resultsTableElement');
-//endregion
 
-//region Game State
-function setGameElements(){
-    switch(gameState){
-        case 'started':
-                newGameElem.style.display = 'none';
-                pickElem.style.display = 'block';
-                resultsElem.style.display = 'block';
-            break;
-        case 'ended':
-                newGameBtn.innerText = 'Once again';
-        case 'notStarted':
-                newGameElem.style.display = 'block';
-                pickElem.style.display = 'none';
-                resultsElem.style.display = 'none';
-    }
-}
-//endregion
+//5th
+const weirdArray = [1, 4, 'Iwona', false, 'Nowak'];
+const [ , , firstName, , lastName] = weirdArray;
+console.log(`${firstName} ${lastName}`);
 
-//Function of game layout
-setGameElements();
-//region New Game
-let playerPointsElem = document.getElementById('js-playerPoints'),
-    playerNameElem = document.getElementById('js-playerName'),
-    computerPointsElem = document.getElementById('js-computerPoints');
-
-function newGame(){
-    player.name = prompt('Please, share with me your name :)');
-    if(player.name) {
-        player.score = computer.score = 0;
-        gameState = 'started';
-        setGameElements();
-
-    playerNameElem.innerHTML = player.name;
-        setGamePoints();
-    }
-}
-//endregion
-
-//region Player pick
-function playerPick(playerPick){
-    console.log(playerPick);
-}
-//endregion
-
-//region Computer pick
-function getComputerPick (){
-    let possiblePicks = ['rock', 'paper', 'scissors'];
-    return possiblePicks[Math.floor(Math.random()*3)];
-}
-//endregion
-
-//region Picks - variables and functions
-let playerPickElem = document.getElementById('js-playerPick'),  // nazwa zmiennej z dużej litery -> pozniej odwołujesz sie do niej z małej (dlatego masz błąd). Poza tym sprawdź czy ten element jest prawidłowo pobierany z DOM
-    computerPickElem = document.getElementById('js-computerPick'),
-    playerResultElem = document.getElementById('js-playerResult'),
-    computerResultElem = document.getElementById('js-computerResult');
-
-function playerPick(playerPick) {
-    let computerPick = getComputerPick();
-
-    playerPickElem.innerHTML = playerPick;
-    computerPickElem.innerHTML = computerPick;
-
-    checkRoundWinner(playerPick, computerPick);
-}
-//endregion
-
-//region Game mechanics
-function checkRoundWinner(playerPick, computerPick){
-    playerResultElem.innerHTML = computerResultElem.innerHTML = '';   // Nieprawidłowa nazwa właściwości (literówka)
-
-    let winnerIs = 'player';
-
-        if (playerPick == computerPick){
-            winnerIs = 'noone';
-        }
-        else if (
-            (computerPick == 'rock' && playerPick =='scissors') ||
-            (computerPick == 'scissors' && playerPick =='paper') ||
-            (computerPick == 'paper' && playerPick == 'rock')) {
-            winnerIs = 'computer';
-        }
-
-        if (winnerIs == 'player'){
-            playerResultElem.innerHTML = "Win!";
-            player.score++;
-        }
-        else if (winnerIs == 'computer') { // Nieprawidłowa nazwa właściwości (literówka)
-            computerResultElem.innerHTML = "Win!";
-            computer.score++;
-        }
-        setGamePoints();
-        if (player.score == 10 || computer.score == 10) {
-            endGame();
-        }
-}
-//endregion
-
-//region Game points update
-function setGamePoints() {
-    playerPointsElem.innerHTML = player.score;
-    computerPointsElem.innerHTML = computer.score;
-}
-//endregion
-function endGame(){
-    gameState = 'ended';
-    setGameElements();
-    let winner = function(){
-        if(player.score == 10){
-            return alert(`And the winner is ${player.name}`);
-        }
-        else{
-            return alert('And the winner is Computer');
-        }
-    }
-    winner();  // czemu tu funkcję wywołujesz? - tu powinieneś zwrócić efekt działania funkcji anonimowej, którą masz przypisaną do zmiennej 'winner'
-}
-debugger;
-//region Finish
+//Codewars 
+//1
+const buildString = (...template) => {return `I like ${template.join(', ')}!`
+};
+//2
